@@ -5,18 +5,19 @@ public class TarotController {
         this.view = view;
     }
 
-    public void drawCard(int cardId) {
-        
-        for(int i = 0; i < 3; i++){
+    public void drawCards(int[] cardIds) {
+        if (cardIds.length != 3) {
+            throw new IllegalArgumentException("Exactly three card IDs are required.");
+        }
 
-            Tarot card = TarotFactory.createCard(cardId);
+        for (int i = 0; i < 3; i++) {
+            Tarot card = TarotFactory.createCard(cardIds[i]);
 
             if (card != null) {
-                view.displayCard(card, i);
+                view.displayCard(card, i + 1); // Columns are 1, 2, 3
             } else {
-                System.out.println("Card not found!");
+                System.out.println("Card not found for ID: " + cardIds[i]);
             }
         }
-        
     }
 }

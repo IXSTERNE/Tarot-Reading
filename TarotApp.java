@@ -4,8 +4,8 @@ public class TarotApp {
         TarotView view = new TarotView();
         TarotController controller = new TarotController(view);
 
-        // Example: Draw a card with ID 1
-        controller.drawCard(3);
+        int[] cardIds = {1, 2, 3}; // Example card IDs
+        controller.drawCards(cardIds);
     }
 }
 
