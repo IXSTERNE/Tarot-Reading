@@ -6,6 +6,7 @@ public class TarotView extends JFrame{
     private JTextArea cardDisplay1, cardDisplay2, cardDisplay3;
     private JLabel cardImage1, cardImage2, cardImage3;
     private JButton button1, button2, button3;
+    private TarotController controller;
 
     public TarotView() {
         
@@ -28,9 +29,9 @@ public class TarotView extends JFrame{
         cardImage3 = new JLabel();
         cardImage3.setHorizontalAlignment(JLabel.CENTER);
 
-        button1 = new JButton("Button 1");
-        button2 = new JButton("Button 2");
-        button3 = new JButton("Button 3");
+        button1 = new JButton("Reveal Past");
+        button2 = new JButton("Reveal Present");
+        button3 = new JButton("Reveal Future");
 
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -73,10 +74,16 @@ public class TarotView extends JFrame{
         gbc.gridx = 2;
         frame.add(button3, gbc);
 
+        displayCards();
+
+        button1.addActionListener(controller);
+        button2.addActionListener(controller);
+        button3.addActionListener(controller);
+
         frame.setVisible(true);
     }
 
-    public void displayCard(Tarot card, int column) {
+    public void revealCards(Tarot card, int column) {
 
         JTextArea cardDisplay;
         JLabel cardImage;
@@ -104,11 +111,28 @@ public class TarotView extends JFrame{
                             "Upright Meaning: " + card.getUprightMeaning() + "\n" +
                             "Reversed Meaning: " + card.getReversedMeaning());
 
+        // Here I have to on default put the back of the card image
+        
         String imagePath = "images/" + card.getName().toLowerCase().replace(" ", "_") + ".png";
         ImageIcon cardIcon = new ImageIcon(imagePath);
         Image image = cardIcon.getImage();
-        Image resizedImage = image.getScaledInstance(620 / 6, 1270 / 6, Image.SCALE_SMOOTH);
+        Image resizedImage = image.getScaledInstance(620 / 3, 1270 / 3, Image.SCALE_SMOOTH);
         cardIcon = new ImageIcon(resizedImage);
         cardImage.setIcon(cardIcon);
+    }
+
+    // There has to be like a default function where it initializes a the placeholders
+    private void displayCards(){
+
+        String backImagePath = "images/tarot_back.png";
+        ImageIcon backImageIcon = new ImageIcon(backImagePath);
+        Image backImage = backImageIcon.getImage();
+        Image resizedBackImage = backImage.getScaledInstance(620 / 3, 1270 / 3, Image.SCALE_SMOOTH);
+        backImageIcon = new ImageIcon(resizedBackImage);
+
+        // This here is repetitive
+        cardImage1.setIcon(backImageIcon);
+        cardImage2.setIcon(backImageIcon);
+        cardImage3.setIcon(backImageIcon);
     }
 }

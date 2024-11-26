@@ -1,23 +1,21 @@
-public class TarotController {
-    private TarotView view;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    public TarotController(TarotView view) {
+public class TarotController implements ActionListener{
+    private TarotView view;
+    private TarotDAO model;
+
+    public TarotController(TarotView view, TarotDAO model) {
         this.view = view;
+        this.model = model;
     }
 
-    public void drawCards(int[] cardIds) {
-        if (cardIds.length != 3) {
-            throw new IllegalArgumentException("Exactly three card IDs are required.");
-        }
+    public void reveal(){
+        System.out.println("Test");
+    }
 
-        for (int i = 0; i < 3; i++) {
-            Tarot card = TarotFactory.createCard(cardIds[i]);
-
-            if (card != null) {
-                view.displayCard(card, i + 1); // Columns are 1, 2, 3
-            } else {
-                System.out.println("Card not found for ID: " + cardIds[i]);
-            }
-        }
+    @Override
+    public void actionPerformed(ActionEvent event){
+        System.out.println("Button is clicked!");
     }
 }
