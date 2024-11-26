@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class TarotController implements ActionListener{
     private TarotView view;
@@ -12,7 +13,11 @@ public class TarotController implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         String command = e.getActionCommand();
-        Tarot card = TarotFactory.createCard(1);
+
+        Random rand = new Random();
+        int random_number = rand.nextInt(1, 11);
+
+        Tarot card = TarotFactory.createCard(random_number);
 
 
         switch(command){
@@ -28,8 +33,9 @@ public class TarotController implements ActionListener{
                 System.out.println("Future revealed!");
                 view.revealCards(card, 3);
                 break;
-            default:
-                throw new IllegalArgumentException("Something wrong happened");
+            case "RESET":
+                System.out.println("Successfully reset");
+                view.resetCards();
         }
     }
 }
