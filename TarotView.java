@@ -8,7 +8,8 @@ public class TarotView extends JFrame{
     private JButton button1, button2, button3;
     private TarotController controller;
 
-    public TarotView() {
+    public TarotView(TarotController controller) {
+        this.controller = controller;
         
         frame = new JFrame("Tarot Reader");
         frame.setSize(800, 600);
@@ -76,11 +77,18 @@ public class TarotView extends JFrame{
 
         displayCards();
 
+        button1.setActionCommand("REVEAL_PAST");
+        button2.setActionCommand("REVEAL_PRESENT");
+        button3.setActionCommand("REVEAL_FUTURE");
+
+        frame.setVisible(true);
+    }
+
+    public void setController(TarotController controller){
+        this.controller = controller;
         button1.addActionListener(controller);
         button2.addActionListener(controller);
         button3.addActionListener(controller);
-
-        frame.setVisible(true);
     }
 
     public void revealCards(Tarot card, int column) {
@@ -134,5 +142,23 @@ public class TarotView extends JFrame{
         cardImage1.setIcon(backImageIcon);
         cardImage2.setIcon(backImageIcon);
         cardImage3.setIcon(backImageIcon);
+
+        cardDisplay1.setText("Card Name: " + "Unknown" + "\n" +
+                            "Arcana: " + "Unknown" + "\n" +
+                            "Suit: " + "Unknown" + "\n" +
+                            "Upright Meaning: " + "Unknown" + "\n" +
+                            "Reversed Meaning: " + "Unknown");
+
+        cardDisplay2.setText("Card Name: " + "Unknown" + "\n" +
+                            "Arcana: " + "Unknown" + "\n" +
+                            "Suit: " + "Unknown" + "\n" +
+                            "Upright Meaning: " + "Unknown" + "\n" +
+                            "Reversed Meaning: " + "Unknown");
+
+        cardDisplay3.setText("Card Name: " + "Unknown" + "\n" +
+                            "Arcana: " + "Unknown" + "\n" +
+                            "Suit: " + "Unknown" + "\n" +
+                            "Upright Meaning: " + "Unknown" + "\n" +
+                            "Reversed Meaning: " + "Unknown");
     }
 }
