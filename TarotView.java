@@ -62,9 +62,6 @@ public class TarotView extends JFrame{
         reveal_present_button = new JButton("Reveal Present");
         reveal_future_button = new JButton("Reveal Future");
         reset_button = new JButton("Reset");
-        
-
-       
 
 
         //frame.setLayout(new GridBagLayout());
