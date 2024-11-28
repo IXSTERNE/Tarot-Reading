@@ -1,10 +1,11 @@
 public class TarotApp {
-    public static void main(String[] args) {
-        new TarotDAO();
-        TarotController controller = new TarotController(null);
-        TarotView view = new TarotView(controller);
+    public static void launchTarotApp(int width, int height, boolean fullscreen){
+
+        TarotDAO model = new TarotDAO();
+        TarotController controller = new TarotController(null, model);
+        TarotView view = new TarotView(controller, width, height, fullscreen);
         
-        controller = new TarotController(view);
+        controller.setView(view);
         view.setController(controller);
     }
 }

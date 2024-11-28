@@ -7,5 +7,5 @@ if errorlevel 1 (
     exit /b
 )
 echo Running application...
-java -cp ".;sqlite.jar" TarotApp
+java -cp ".;sqlite.jar" Launcher
 pause
