@@ -69,9 +69,10 @@ public class Launcher extends JFrame{
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            Launcher launcher = new Launcher();
-            launcher.setVisible(true);
-        });
+        //SwingUtilities.invokeLater(() -> {
+            
+        //});
+        Launcher launcher = new Launcher();
+        launcher.setVisible(true);
     }
 }
