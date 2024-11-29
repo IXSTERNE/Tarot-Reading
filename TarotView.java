@@ -200,7 +200,7 @@ public class TarotView extends JFrame{
     }
     
 
-    // There has to be like a default function where it initializes a the placeholders
+    // There has to be like a default function where it initializes the placeholders / cardbacks
     private void initializeCardBacks(int cardCount, JLabel[] cardImages, JTextArea[] cardDescriptions) {
         String backImagePath = "images/tarot_back.png";
         ImageIcon backImageIcon = new ImageIcon(backImagePath);
