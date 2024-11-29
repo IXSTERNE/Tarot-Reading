@@ -11,8 +11,6 @@ import java.awt.image.BufferedImage;
 
 public class TarotView extends JFrame{
 
-    
-
     private JTextArea[] cardDescriptions, cardDescriptions2;
     private JLabel[] cardImages, cardImages2;
 
@@ -73,10 +71,11 @@ public class TarotView extends JFrame{
         reveal_button = new JButton("Reveal"); 
         reveal_button.setActionCommand("REVEAL_THREE");
 
-        reveal_celtic_button = new JButton("Reveal Celtic Cross");
+        reveal_celtic_button = new JButton("Reveal");
         reveal_celtic_button.setActionCommand("REVEAL_FIVE");
 
 
+        // Past, present, future reading layout
         gbc.gridx = 0;
         gbc.gridy = 0;
         spreadPanel.add(cardImages[0], gbc);
@@ -95,27 +94,26 @@ public class TarotView extends JFrame{
 
 
 
-        // This is the second page layout
-
+        // Celtic reading layout
         gbc2.gridx = 1;
         gbc2.gridy = 1;
-        spreadPanel2.add(cardImages2[0], gbc2); // Center card
+        spreadPanel2.add(cardImages2[0], gbc2);
 
         gbc2.gridx = 0;
         gbc2.gridy = 1;
-        spreadPanel2.add(cardImages2[1], gbc2); // Left card
+        spreadPanel2.add(cardImages2[1], gbc2);
 
         gbc2.gridx = 2;
         gbc2.gridy = 1;
-        spreadPanel2.add(cardImages2[2], gbc2); // Right card
+        spreadPanel2.add(cardImages2[2], gbc2);
 
         gbc2.gridx = 1;
         gbc2.gridy = 0;
-        spreadPanel2.add(cardImages2[3], gbc2); // Top card
+        spreadPanel2.add(cardImages2[3], gbc2);
 
         gbc2.gridx = 1;
         gbc2.gridy = 2;
-        spreadPanel2.add(cardImages2[4], gbc2); // Bottom card
+        spreadPanel2.add(cardImages2[4], gbc2);
 
         gbc2.gridx = 1;
         gbc2.gridy = 3;
@@ -139,7 +137,7 @@ public class TarotView extends JFrame{
         page2.add(descriptionPanel2, BorderLayout.EAST);
 
         tabPanel.addTab("Past, Present and Future", page1);
-        tabPanel.addTab("Celtic Reading", page2);
+        tabPanel.addTab("Celtic Cross", page2);
 
         add(tabPanel);
         setVisible(true);

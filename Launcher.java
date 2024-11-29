@@ -24,7 +24,7 @@ public class Launcher extends JFrame{
         gbc.gridy = 0;
         add(resolutionLabel, gbc);
 
-        String[] resolutions = {"800x600", "1024x768", "1280x720", "1920x1080"};
+        String[] resolutions = {"1024x768", "1280x720", "1920x1080"};
         resolutionComboBox = new JComboBox<>(resolutions);
         gbc.gridx = 1;
         add(resolutionComboBox, gbc);
@@ -69,9 +69,7 @@ public class Launcher extends JFrame{
     }
 
     public static void main(String[] args) {
-        //SwingUtilities.invokeLater(() -> {
-            
-        //});
+  
         Launcher launcher = new Launcher();
         launcher.setVisible(true);
     }

@@ -27,6 +27,8 @@ public class MenuBar {
 
         howMenuItem.addActionListener(e -> InstructionWindow.show(parentFrame));
 
+        helpMenuItem.addActionListener(e -> EmporiumWindow.show(parentFrame));
+
         menuBar.add(fileMenu);
         menuBar.add(helpMenu);
 
